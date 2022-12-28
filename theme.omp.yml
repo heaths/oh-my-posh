@@ -50,7 +50,7 @@ blocks:
     background: p:gray
     template: "  {{ path .Path .Location }} "
     properties:
-      style: mixed
+      style: full
 
   - type: git
     style: powerline
