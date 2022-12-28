@@ -103,7 +103,8 @@ secondary_prompt:
 
 transient_prompt:
   background: transparent
-  template: "<p:white,p:gray>   {{ path .PWD .Folder }} </><p:gray,transparent></> "
+  template: "{{ if .Segments.Executiontime.FormattedMs }}<p:white,p:darkgray> {{ .Segments.Executiontime.FormattedMs }}
+    </><p:darkgray,p:gray></>{{end}}<p:white,p:gray>  {{ path .PWD .Folder }} </><p:gray,transparent></> "
 
 tooltips:
 - type: az
