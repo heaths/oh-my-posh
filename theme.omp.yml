@@ -56,7 +56,7 @@ blocks:
     powerline_symbol: ""
     foreground: p:black
     background: p:gray
-    template: "  {{ path .Path .Location }} "
+    template: '  {{ path .Path .Location }} {{ repeat .StackCount "" }}'
     properties:
       style: full
 
