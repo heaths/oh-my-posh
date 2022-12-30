@@ -4,16 +4,17 @@ console_title_template: "{{ .Shell }} in {{ .Folder }}"
 final_space: true
 
 palette:
-  blue: "31"
-  darkgray: "236"
-  darkred: "52"
-  gray: "240"
-  green: "2"
-  lightgray: "252"
-  purple: "55"
-  red: "1"
-  yellow: "3"
-  white: "231"
+  # https://colorkit.co/palette/02944e-4f0193-f1c516-eb850d-e44403-05a3e2-f7f6f5-7c7b7b-464646-101010/
+  green: "#02944e"
+  purple: "#4f0193"
+  yellow: "#f1c516"
+  orange: "#eb850d"
+  red: "#e44403"
+  blue: "#05a3e2"
+  white: "#f7f6f5"
+  gray: "#7c7b7b"
+  darkGray: "#464646"
+  black: "#101010"
 
 blocks:
 - type: prompt
@@ -31,8 +32,8 @@ blocks:
   - type: executiontime
     style: powerline
     powerline_symbol: ""
-    foreground: p:white
-    background: p:darkgray
+    foreground: p:black
+    background: p:yellow
     properties:
       style: austin
 
@@ -43,10 +44,17 @@ blocks:
     background: p:blue
     template: " {{ if .SSHSession }} {{ end }}{{ .UserName }} "
 
-  - type: path
+  - type: root
     style: powerline
     powerline_symbol: ""
     foreground: p:white
+    background: p:yellow
+    template: "  "
+
+  - type: path
+    style: powerline
+    powerline_symbol: ""
+    foreground: p:black
     background: p:gray
     template: "  {{ path .Path .Location }} "
     properties:
@@ -59,13 +67,13 @@ blocks:
     foreground_templates:
     - "{{ if or (.Working.Changed) (.Staging.Changed) }}p:black{{ end }}"
     - "{{ if and (gt .Ahead 0) (gt .Behind 0) }}p:white{{ end }}"
-    - "{{ if gt .Ahead 0 }}p:white{{ end }}"
+    - "{{ if gt .Ahead 0 }}p:black{{ end }}"
     background: p:green
     background_templates:
     - "{{ if or (.Working.Changed) (.Staging.Changed) }}p:yellow{{ end }}"
     - "{{ if and (gt .Ahead 0) (gt .Behind 0) }}p:red{{ end }}"
     - "{{ if gt .Ahead 0 }}p:yellow{{ end }}"
-    - "{{ if gt .Behind 0 }}p:white{{ end }}"
+    - "{{ if gt .Behind 0 }}p:orange{{ end }}"
     template: " {{ if .UpstreamURL }}{{ url .UpstreamIcon .UpstreamURL }}{{ end }}{{
       .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed
       }}  {{ .Working.String }}{{ end }}{{ if .Staging.Changed }}  {{ .Staging.String
@@ -74,13 +82,6 @@ blocks:
       branch_icon: " "
       branch_max_length: 25
       fetch_status: true
-
-  - type: root
-    style: powerline
-    powerline_symbol: ""
-    foreground: p:white
-    background: p:yellow
-    template: "  "
 
   - type: exit
     style: diamond
@@ -103,8 +104,8 @@ secondary_prompt:
 
 transient_prompt:
   background: transparent
-  template: "{{ if .Segments.Executiontime.FormattedMs }}<p:white,p:darkgray> {{ .Segments.Executiontime.FormattedMs }}
-    </><p:darkgray,p:gray></>{{end}}<p:white,p:gray>  {{ path .PWD .Folder }} </><p:gray,transparent></> "
+  template: "{{ if .Segments.Executiontime.FormattedMs }}<p:white,p:darkGray> {{ .Segments.Executiontime.FormattedMs }}
+    </><p:darkGray,p:gray></>{{end}}<p:white,p:gray>  {{ path .PWD .Folder }} </><p:gray,transparent></> "
 
 tooltips:
 - type: az
