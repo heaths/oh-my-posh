@@ -102,13 +102,6 @@ secondary_prompt:
   background: transparent
   template: "<p:black,p:gray> </><p:gray,transparent></> "
 
-transient_prompt:
-  background: transparent
-  template: "<p:white,p:purple> {{ .Segments.Shell.Name }} </><p:purple,p:gray></><p:black,p:gray>
-     {{ path .PWD .Folder }} </>{{ if .Segments.Git.HEAD
-    }}<p:gray,p:darkGray></><p:white,p:darkGray> {{ .Segments.Git.HEAD }} </><p:darkGray,transparent></> {{ else
-    }}<p:gray,transparent></> {{ end }}"
-
 tooltips:
 - type: az
   tips:
