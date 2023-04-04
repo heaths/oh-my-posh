@@ -7,6 +7,7 @@ palette:
   # https://colorkit.co/palette/02944e-4f0193-f1c516-eb850d-e44403-05a3e2-f7f6f5-7c7b7b-464646-101010/
   green: "#02944e"
   purple: "#4f0193"
+  darkPurple: "#940248"
   yellow: "#f1c516"
   orange: "#eb850d"
   red: "#e44403"
@@ -28,6 +29,13 @@ blocks:
       mapped_shell_names:
         powershell: PS
         pwsh: PS
+
+  - type: python
+    style: powerline
+    powerline_symbol: ""
+    foreground: p:white
+    background: p:darkPurple
+    template: "  {{ if .Error }}{{ .Error }}{{ else }}{{ if .Venv }}{{ .Venv }} {{ end }}{{ .Full }}{{ end }} "
 
   - type: executiontime
     style: powerline
