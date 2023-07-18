@@ -2,12 +2,13 @@
 version: 2
 console_title_template: "{{ .Shell }} in {{ .Folder }}"
 final_space: true
+shell_integration: true
 
 palette:
   # https://colorkit.co/palette/02944e-4f0193-f1c516-eb850d-e44403-05a3e2-f7f6f5-7c7b7b-464646-101010/
   green: "#02944e"
   purple: "#4f0193"
-  darkPurple: "#940248"
+  darkPurple: "#940248" # not in palette
   yellow: "#f1c516"
   orange: "#eb850d"
   red: "#e44403"
