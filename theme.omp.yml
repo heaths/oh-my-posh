@@ -75,7 +75,7 @@ blocks:
     powerline_symbol: ""
     foreground: p:black
     background: p:gray
-    template: '  {{ path .Path .Location }} {{ repeat .StackCount "" }}'
+    template: ' {{ path .Path .Location }} {{ repeat .StackCount "" }}'
     properties:
       style: full
 
@@ -112,18 +112,5 @@ debug_prompt:
 secondary_prompt:
   background: transparent
   template: "<p:black,p:gray> </><p:gray,transparent></> "
-
-tooltips:
-- type: az
-  tips:
-  - az
-  style: diamond
-  foreground: p:white
-  background: p:blue
-  leading_diamond: ""
-  trailing_diamond: ""
-  template: "ﴃ {{ .Name }}"
-  properties:
-    display_default: true
 
 # vim: set et sw=2:
