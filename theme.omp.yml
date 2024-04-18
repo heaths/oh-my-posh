@@ -67,8 +67,8 @@ blocks:
     style: powerline
     powerline_symbol: ""
     foreground: p:white
-    background: p:yellow
-    template: "  "
+    background: p:red
+    template: "  "
 
   - type: path
     style: powerline
