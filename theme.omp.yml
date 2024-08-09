@@ -1,6 +1,11 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
 version: 2
-console_title_template: "{{ .Shell }} in {{ .Folder }}"
+console_title_template: >-
+  {{ .Shell }} in {{ if .Segments.Git.RepoName -}}
+    git:{{ .Segments.Git.RepoName }}{{ trimPrefix .Segments.Git.Dir .PWD}}
+  {{- else -}}
+    {{ .Folder }}
+  {{- end }}
 final_space: true
 shell_integration: true
 
@@ -46,7 +51,7 @@ blocks:
     properties:
       style: austin
 
-  - type: exit
+  - type: status
     style: powerline
     powerline_symbol: ""
     foreground: p:white
