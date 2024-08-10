@@ -1,8 +1,13 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
 version: 2
 console_title_template: >-
-  {{ .Shell }} in {{ if .Segments.Git.RepoName -}}
-    git:{{ .Segments.Git.RepoName }}{{ trimPrefix .Segments.Git.Dir .PWD}}
+  {{ $pwd := .PWD -}}
+  {{ .Shell }} in {{ with $repo := .Segments.Git -}}
+    {{ if (gt (sub (len $pwd) (len $repo.Dir)) 20) -}}
+      git:{{ $repo.RepoName }}/…/{{ base $pwd }}
+    {{- else -}}
+      git:{{ $repo.RepoName }}{{ trimPrefix $repo.Dir $pwd}}
+    {{- end }}
   {{- else -}}
     {{ .Folder }}
   {{- end }}
