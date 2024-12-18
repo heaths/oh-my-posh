@@ -94,6 +94,9 @@ blocks:
   newline: true
   segments:
   - type: git
+    cache:
+      duration: 30s
+      strategy: folder
     style: diamond
     trailing_diamond: ""
     foreground: p:white
