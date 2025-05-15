@@ -71,7 +71,7 @@ blocks:
     powerline_symbol: ""
     foreground: p:white
     background: p:blue
-    template: " {{ if .SSHSession }} {{ end }}{{ .UserName }} "
+    template: "{{ if .SSHSession }}  {{ .UserName }} {{ end }}"
 
   - type: root
     style: powerline
